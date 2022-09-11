@@ -2,9 +2,7 @@
   
 Roid1 is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
 You can operate the joints of the robot with sliders.  
-  
 And you can also import this URDF file into Unity via URDF-importer.  
-  
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
