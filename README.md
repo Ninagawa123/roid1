@@ -1,48 +1,54 @@
 # Roid1 (執筆途中)
-
-Roid1 is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.
-You can operate the joints of the robot with sliders.
   
-And you can also import this URDF file into Unity via URDF-importer.
-
-Roid1は小型ヒューマノイドロボットのURDFファイルです。
-Rvizでモデルを表示し、スライダーで関節を曲げることができます。
-また、URDF-importerを使いUnity上にモデルをインポートすることもできます。
-
+Roid1 is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
+You can operate the joints of the robot with sliders.  
+  
+And you can also import this URDF file into Unity via URDF-importer.  
+  
+Roid1は小型ヒューマノイドロボットのURDFファイルです。  
+Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
+また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
+  
 # Usage (View in Rviz)
-
-This demo has been confirmed to work on ROS-melodic,noetic with Rviz.
-Rviz用のデモはROS-melodic,noeticのRvizで動作確認しています。
-
-$ cd ~/catkin_ws/src/
-
-$ git clone https://github.com/Ninagawa123/roid1.git
-
-$ cd ~/catkin_ws/
-
-$ catkin build
-
-$ source ~/catkin_ws/devel/setup.bash
-
-$ roslaunch roid1 display.launch
-
-# Usage (View in Unity)
-
-あとで書きます。
-
+  
+This demo has been confirmed to work on ubuntu/ROS-melodic,noetic with Rviz.  
+Rviz用のデモはROS-melodic,noeticのRvizで動作確認しています。  
+コマンドプロンプトより下記のコマンドで導入からRvizへの表示までを試せます。
+  
+$ cd ~/catkin_ws/src/  
+  
+$ git clone https://github.com/Ninagawa123/roid1.git  
+  
+$ cd ~/catkin_ws/  
+  
+$ catkin build  
+  
+$ source ~/catkin_ws/devel/setup.bash  
+  
+$ roslaunch roid1 display.launch  
+  
+# Usage (View in Unity)  
+  
+Drop URDF folder into Unity Assets, and open "roid1_urdf_unity.urdf" in URDF folder with URDF-Importer.  
+UnityのプロジェクトウィンドウのAssetsの中にURDFフォルダをドロップしてください。その後、URDF-Importerで読み込んでください。  
+URDF-Importerの使い方は、https://www.youtube.com/watch?v=-OvDCy6cbfU  
+  
+  
 # Directory Tree
 
 <pre>
 ~/catkin_ws/src/
-└── roid1_urdf #ros_package
+└── roid1 #ros_package
+    ├── README.md
     ├── CMakeLists.txt
     ├── package.xml
-    ├── roid1_urdf.urdf
     ├── urdf_rviz.rviz
     ├── launch
-    │   ├── display_meridian_demo.launch
-    │   └── display.launch
+    │   ├── display.launch
+    │   └── display_meridian_demo.launch
     └── roid1_description
+        ├── roid1_urdf.urdf
+        ├── roid1_urdf_unity.urdf
         └── meshes    
             ├── c_chest_a.stl
             ├── c_chest_b.stl
