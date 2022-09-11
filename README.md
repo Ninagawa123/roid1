@@ -6,6 +6,9 @@ And you can also import this URDF file into Unity via URDF-importer.
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
+
+<img width="600" alt="roid1" src="https://user-images.githubusercontent.com/8329123/189541198-b70175dd-b50d-4334-860d-81675eec0de5.png">
+  
   
 # Usage (View in Rviz)
   
