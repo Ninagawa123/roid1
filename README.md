@@ -1,4 +1,4 @@
-# Roid1 (執筆途中)
+# Roid1
   
 Roid1 is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
 You can operate the joints of the robot with sliders.  
