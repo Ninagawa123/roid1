@@ -18,7 +18,7 @@
 
   <!--base link: origin of this model(0,0,0) -->
   <link name="base_footprint" />
-  <link name="base_link"></link>
+  <link name="base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0004860989233068058 0.009532810756286874 0.27413898086600197" />
       <mass value="0.13408213174666955" />
