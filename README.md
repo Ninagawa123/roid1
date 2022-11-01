@@ -3,7 +3,7 @@ https://github.com/Ninagawa123/roid1/tree/inatia
 
 # Roid1
   
-Roid1 is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
+This is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
 You can operate the joints of the robot with sliders.  
 And you can also import this URDF file into Unity via URDF-importer.  
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
