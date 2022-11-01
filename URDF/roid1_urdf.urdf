@@ -132,7 +132,6 @@
       <material name="light_blue" />
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="-0.022456 -0.009542 -0.35425" />
       <geometry>
         <mesh filename="package://roid1/URDF/roid1_description/meshes/c_head_a.stl" />
       </geometry>
