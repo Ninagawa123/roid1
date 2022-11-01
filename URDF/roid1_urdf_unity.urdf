@@ -521,6 +521,11 @@
         <mesh filename="package://roid1_description/meshes/l_leg_lower_a.stl" />
       </geometry>
     </collision>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_leg_lower_b.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_ankle_pitch-->
@@ -711,6 +716,11 @@
     <collision>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_leg_lower_a.stl" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_leg_lower_b.stl" />
       </geometry>
     </collision>
   </link>
