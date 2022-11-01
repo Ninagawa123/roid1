@@ -345,12 +345,31 @@
       </geometry>
     </collision>
   </link>
-  <link name="l_hipjointupper">
+
+
+  <!--left side lower body-->
+
+  <!--l_hipjoint_yaw-->
+  <joint name="l_hipjoint_yaw" type="revolute">
+    <parent link="base_link" />
+    <child link="l_hipjoint_upper" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.0 0.021530 -0.044936" />
+    <limit lower="-3" upper="3" effort="0" velocity="0" />
+  </joint>
+  <link name="l_hipjoint_upper">
     <inertial>
       <origin rpy="0 0 0" xyz="3.293764515496962e-05 -0.0011113374509284651 -0.007400199793976242" />
       <mass value="0.005702042499396512" />
       <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="-0.0" izz="2e-06" />
     </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_hipjoint_upper.stl" />
+      </geometry>
+      <origin xyz="0 0 0" />
+      <material name="light_gray" />
+    </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/dec_l_hipjoint_upperpoint.stl" />
@@ -364,7 +383,16 @@
       </geometry>
     </collision>
   </link>
-  <link name="l_hipjointlower">
+
+  <!--l_hipjoint_roll-->
+  <joint name="l_hipjoint_roll" type="revolute">
+    <parent link="l_hipjoint_upper" />
+    <child link="l_hipjoint_lower" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0 -0.004501 0" />
+    <limit lower="-3" upper="3" effort="0" velocity="0" />
+  </joint>
+  <link name="l_hipjoint_lower" type="revolute"><!--need to fix-->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.016250242301438553 0.011463181378816707 -0.0066539419866288585" />
       <mass value="0.06689532645492419" />
@@ -480,7 +508,12 @@
     <origin xyz="0.0 -0.011404 -0.038550" />
     <limit lower="-3" upper="3" effort="0" velocity="0" />
   </joint>
-  <link name="l_foot_large">
+  <link name="l_foot_large">  <!--need to fix-->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.020700151207566492 -0.023895258538579878 -0.02124453405755709" />
+      <mass value="0.03847104970565037" />
+      <inertia ixx="2.3e-05" ixy="-0.0" ixz="-0.0" iyy="4.8e-05" iyz="-0.0" izz="6.9e-05" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_foot_large.stl" />
@@ -500,7 +533,7 @@
 
   <!--r_hipjoint_yaw-->
   <joint name="r_hipjoint_yaw" type="revolute">
-    <parent link="c_waist" />
+    <parent link="base_link" />
     <child link="r_hipjoint_upper" />
     <axis xyz="0 0 1" />
     <origin xyz="0.0 -0.021530 -0.044936" />
@@ -638,7 +671,16 @@
       </geometry>
     </collision>
   </link>
-  <link name="r_foot">
+
+  <!--r_ankle_roll-->
+  <joint name="r_ankle_roll" type="revolute">
+    <parent link="r_ankle" />
+    <child link="r_foot_large" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0.0 0.011404 -0.038550" />
+    <limit lower="-3" upper="3" effort="0" velocity="0" />
+  </joint>
+  <link name="r_foot_large">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.020700151207566492 -0.023895258538579878 -0.02124453405755709" />
       <mass value="0.03847104970565037" />
