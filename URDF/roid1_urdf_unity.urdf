@@ -40,34 +40,29 @@
   <!--chest-->
   <joint name="c_chest_yaw" type="revolute">
     <parent link="base_link" />
-    <child link="c_chest_a" />
+    <child link="c_chest" />
     <axis xyz="0 0 1" />
     <origin xyz="0 0 0.065192" />
     <limit lower="-3" upper="3" effort="0" velocity="0" />
   </joint>
 
-  <link name="c_chest_a">
+  <link name="c_chest">
     <inertial>
-      <origin rpy="0 0 0" xyz="-9.07564737343998e-05 -4.299695898109246e-08 0.04371354326547944" />
-      <mass value="0.1751250442918052" />
-      <inertia ixx="0.000158" ixy="0.0" ixz="0.0" iyy="6.6e-05" iyz="-0.0" izz="0.000176" />
+      <origin rpy="0 0 0" xyz="0.004546800382866728 -4.1161282904669805e-08 -0.0024788373011201403" />
+      <mass value="0.033763915303500654" />
+      <inertia ixx="3.4e-05" ixy="-0.0" ixz="-3e-06" iyy="1.9e-05" iyz="0.0" izz="3.6e-05" />
     </inertial>
     <visual>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/c_chest.stl" />
+      </geometry>
       <origin xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://roid1_description/meshes/c_chest_a.stl" />
-      </geometry>
-      <material name="light_gray" />
+      <material name="dark_gray" />
     </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://roid1_description/meshes/c_chest_a.stl" />
-      </geometry>
-    </collision>
   </link>
 
   <joint name="c_chest_ab" type="fixed">
-    <parent link="c_chest_a" />
+    <parent link="c_chest" />
     <child link="c_chest_b" />
     <origin xyz="0 0 0" />
     <limit lower="-3" upper="3" effort="0" velocity="0" />
@@ -90,22 +85,27 @@
 
   <link name="c_chest_c">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.004546800382866728 -4.1161282904669805e-08 -0.0024788373011201403" />
-      <mass value="0.033763915303500654" />
-      <inertia ixx="3.4e-05" ixy="-0.0" ixz="-3e-06" iyy="1.9e-05" iyz="0.0" izz="3.6e-05" />
+      <origin rpy="0 0 0" xyz="-9.07564737343998e-05 -4.299695898109246e-08 0.04371354326547944" />
+      <mass value="0.1751250442918052" />
+      <inertia ixx="0.000158" ixy="0.0" ixz="0.0" iyy="6.6e-05" iyz="-0.0" izz="0.000176" />
     </inertial>
     <visual>
+      <origin xyz="0 0 0" />
       <geometry>
         <mesh filename="package://roid1_description/meshes/c_chest_b.stl" />
       </geometry>
-      <origin xyz="0 0 0" />
-      <material name="dark_gray" />
+      <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/c_chest_b.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--head-->
   <joint name="c_head_yaw" type="revolute">
-    <parent link="c_chest_a" />
+    <parent link="c_chest" />
     <child link="c_head" />
     <axis xyz="0 0 1" />
     <origin xyz="0 0 0.039505" />
