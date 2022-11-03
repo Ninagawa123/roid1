@@ -156,7 +156,6 @@
       <inertia ixx="1e-06" ixy="-0.0" ixz="0.0" iyy="4e-06" iyz="0.0" izz="4e-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" />
       <geometry>
         <mesh filename="package://roid1/URDF/roid1_description/meshes/l_shoulder.stl" />
       </geometry>
