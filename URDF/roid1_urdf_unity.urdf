@@ -1,92 +1,121 @@
 <?xml version="1.0"?>
 
-<robot name="Roid1">
+<robot name="Roid1i">
+<!--Roid1i Ver.2023.12.23 -->
 
+  <!--material color setting -->
   <material name="dark_gray">
-    <color rgba="0.2 0.2 0.2 1.0"/>
+    <color rgba="0.2 0.2 0.2 1.0" />
   </material>
   <material name="light_gray">
-    <color rgba="0.99 0.99 0.99 1.0"/>
+    <color rgba="0.99 0.99 0.99 1.0" />
   </material>
   <material name="light_blue">
-    <color rgba="0.3 0.5 1.0 1.0"/>
+    <color rgba="0.3 0.5 1.0 1.0" />
   </material>
   <material name="orange">
-    <color rgba="1.0 0.3 0.1 1.0"/>
+    <color rgba="1.0 0.3 0.1 1.0" />
   </material>
 
+  <!--world-->
+  <link name="world" />
+
+  <!--joint; world to base-->
+  <joint name="fixed" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+  </joint>
 
   <!--base link: origin of this model(0,0,0) -->
   <link name="base_link">
-  </link>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0004860989233068058 0.009532810756286874 0.27413898086600197" />
+      <mass value="0.1428" />
+      <inertia ixx="0.00002" iyy="0.00003" izz="0.00003" ixy="0.0" ixz="0.0" iyz="0.0" />
 
-
-  <!--center of body-->
-  
-  <!--waist-->
-  <joint name="c_waist_fixed" type="fixed">
-    <parent link="base_link"/>
-    <child link="c_waist"/>
-    <origin xyz="0 0 0.278106"/>
-  </joint>
-  <link name="c_waist">
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/c_waist.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="dark_gray"/>
+      <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/c_waist.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--chest-->
   <joint name="c_chest_yaw" type="revolute">
-    <parent link="c_waist"/>
-    <child link="c_chest"/>
-    <axis xyz="0 0 1"/>
-    <origin xyz="0 0 0.065192"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="base_link" />
+    <child link="c_chest" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 0.065192" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
+
   <link name="c_chest">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.004546800382866728 -0.000000041161282904669805 -0.0024788373011201403" />
+      <mass value="0.04215" />
+      <inertia ixx="0.00059" iyy="0.00089" izz="0.00097" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://roid1_description/meshes/c_chest_a.stl" />
+        <mesh filename="package://roid1_description/meshes/c_chest.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="light_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="dark_gray" />
     </visual>
     <visual>
+      <origin xyz="0 0 0" />
       <geometry>
         <mesh filename="package://roid1_description/meshes/c_chest_b.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="dark_gray"/>
+      <material name="light_gray" />
     </visual>
+        <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/c_chest_b.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--head-->
   <joint name="c_head_yaw" type="revolute">
-    <parent link="c_chest"/>
+    <parent link="c_chest" />
     <child link="c_head" />
-    <axis xyz="0 0 1"/>
-    <origin xyz="0 0 0.039505"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 0.039505" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="c_head">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.003079433021973575 -0.000000043073247395913894 0.022888877386975093" />
+      <mass value="0.013" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/c_head_a.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray" />
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/c_head_b.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="light_blue"/>
+      <origin xyz="0 0 0" />
+      <material name="light_blue" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/c_head_a.stl" />
+      </geometry>
+    </collision>
   </link>
 
 
@@ -94,83 +123,123 @@
 
   <!--chest to l_shoulder-->
   <joint name="l_shoulder_pitch" type="revolute">
-    <parent link="c_chest"/>
+    <parent link="c_chest" />
     <child link="l_shoulder" />
-    <axis xyz="0 1 0"/>
-    <origin xyz="0 0.074375 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0.074375 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_shoulder">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00016940373751364937 0.008747288709026461 0.000000000000032529534621517087" />
+      <mass value="0.014" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_shoulder.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray">
-          s<color rgba="0.8 0.8 0.8 1"/>
+        <color rgba="0.8 0.8 0.8 1" />
       </material>
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/dec_shoulderpoint.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="orange"/>
+      <origin xyz="0 0 0" />
+      <material name="orange" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_shoulder.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_shoulder_roll-->
   <joint name="l_shoulder_roll" type="revolute">
-    <parent link="l_shoulder"/>
-    <child link="l_upperarm"/>
-    <axis xyz="1 0 0"/>
-    <origin xyz="0 0 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_shoulder" />
+    <child link="l_upperarm" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_upperarm">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.02256531849252991 -0.000000042996961130414846 -0.03564584515249991" />
+      <mass value="0.098" />
+      <inertia ixx="0.00014" iyy="0.00016" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_arm_upper.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_arm_upper.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_elbow_yaw-->
   <joint name="l_elbow_yaw" type="revolute">
-    <parent link="l_upperarm"/>
-    <child link="l_elbow"/>
-    <axis xyz="0 0 1"/>
-    <origin xyz="0.004449 0 -0.087511"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_upperarm" />
+    <child link="l_elbow" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.004449 0 -0.087511" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_elbow">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00005745484729775818 -0.00000004299695875731313 -0.012574921301198305" />
+      <mass value="0.044" />
+      <inertia ixx="0.00001" iyy="0.00001" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_elbow.stl" />
       </geometry>
-      <origin xyz="0.0 0 0"/>
+      <origin xyz="0.0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_elbow.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_elbow_pitch-->
   <joint name="l_elbow_pitch" type="revolute">
-    <parent link="l_elbow"/>
-    <child link="l_lowerarm"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.004698 0 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_elbow" />
+    <child link="l_lowerarm" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.004698 0 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_lowerarm">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00017641899363149416 -0.0156924274010031 -0.04569649848488025" />
+      <mass value="0.030" />
+      <inertia ixx="0.00010" iyy="0.00009" izz="0.00001" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_arm_lower.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="light_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_arm_lower.stl" />
+      </geometry>
+    </collision>
   </link>
 
 
@@ -178,83 +247,123 @@
 
   <!--r_shoulder_pitch-->
   <joint name="r_shoulder_pitch" type="revolute">
-    <parent link="c_chest"/>
+    <parent link="c_chest" />
     <child link="r_shoulder" />
-    <axis xyz="0 1 0"/>
-    <origin xyz="0 -0.074375 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <axis xyz="0 1 0" />
+    <origin xyz="0 -0.074375 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_shoulder">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00016940373733528857 -0.008747374702943796 0.00000000000005306866057708248" />
+      <mass value="0.014" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_shoulder.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray">
-          <color rgba="0.8 0.8 0.8 1"/>
+          <color rgba="0.8 0.8 0.8 1" />
       </material>
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/dec_shoulderpoint.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="orange"/>
+      <origin xyz="0 0 0" />
+      <material name="orange" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_shoulder.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_shoulder_roll-->
   <joint name="r_shoulder_roll" type="revolute">
-    <parent link="r_shoulder"/>
-    <child link="r_upperarm"/>
-    <axis xyz="1 0 0"/>
-    <origin xyz="0 0 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_shoulder" />
+    <child link="r_upperarm" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_upperarm">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.022565318492529688 -0.000000042996961074903695 -0.03564584515249991" />
+      <mass value="0.098" />
+      <inertia ixx="0.00014" iyy="0.00016" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_arm_upper.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_arm_upper.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_elbow_yaw-->
   <joint name="r_elbow_yaw" type="revolute">
-    <parent link="r_upperarm"/>
-    <child link="r_elbow"/>
-    <axis xyz="0 0 1"/>
-    <origin xyz="0.004449 0 -0.087511"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_upperarm" />
+    <child link="r_elbow" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.004449 0 -0.087511" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_elbow">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000057454847330103836 -0.000000042996958674046404 -0.012574921301198305" />
+      <mass value="0.044" />
+      <inertia ixx="0.00001" iyy="0.00001" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_elbow.stl" />
       </geometry>
-      <origin xyz="0.0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_elbow.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_elbow_pitch-->
   <joint name="r_elbow_pitch" type="revolute">
-    <parent link="r_elbow"/>
-    <child link="r_lowerarm"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.004698 0 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_elbow" />
+    <child link="r_lowerarm" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.004698 0 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_lowerarm">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00017641899364317232 0.01569234140705124 -0.04569649848495705" />
+      <mass value="0.030" />
+      <inertia ixx="0.00010" iyy="0.00009" izz="0.00001" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_arm_lower.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="light_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_arm_lower.stl" />
+      </geometry>
+    </collision>
   </link>
 
 
@@ -262,131 +371,196 @@
 
   <!--l_hipjoint_yaw-->
   <joint name="l_hipjoint_yaw" type="revolute">
-    <parent link="c_waist"/>
-    <child link="l_hipjoint_upper"/>
-    <axis xyz="0 0 1"/>
-    <origin xyz="0.0 0.021530 -0.044936"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="base_link" />
+    <child link="l_hipjoint_upper" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.0 0.021530 -0.044936" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_hipjoint_upper">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00003293764515496962 -0.0011113374509284651 -0.007400199793976242" />
+      <mass value="0.0115" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_hipjoint_upper.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray" />
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/dec_l_hipjoint_upperpoint.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="orange"/>
+      <origin xyz="0 0 0" />
+      <material name="orange" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_hipjoint_upper.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_hipjoint_roll-->
   <joint name="l_hipjoint_roll" type="revolute">
-    <parent link="l_hipjoint_upper"/>
-    <child link="l_hipjoint_lower"/>
-    <axis xyz="1 0 0"/>
-    <origin xyz="0 -0.004501 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_hipjoint_upper" />
+    <child link="l_hipjoint_lower" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0 -0.004501 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
-  <link name="l_hipjoint_lower">
+  <link name="l_hipjoint_lower" type="revolute"><!--need to fix-->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.016250242301438553 0.011463181378816707 -0.0066539419866288585" />
+      <mass value="0.058" />
+      <inertia ixx="0.00003" iyy="0.00002" izz="0.00001" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_hipjoint_lower.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_hipjoint_lower.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_hipjoint_pitch-->
   <joint name="l_hipjoint_pitch" type="revolute">
-    <parent link="l_hipjoint_lower"/>
-    <child link="l_leg_upper"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.004052 0.011504 -0.038476"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_hipjoint_lower" />
+    <child link="l_leg_upper" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.004052 0.011504 -0.038476" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_leg_upper">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.002589780466551929 -0.016500042996958703 -0.03375567398425394" />
+      <mass value="0.091" />
+      <inertia ixx="0.00007" iyy="0.00007" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://roid1_description/meshes/l_leg_upper_a.stl"/>
+        <mesh filename="package://roid1_description/meshes/l_leg_upper_a.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
     <visual>
       <geometry>
-        <mesh filename="package://roid1_description/meshes/l_leg_upper_b.stl"/>
+        <mesh filename="package://roid1_description/meshes/l_leg_upper_b.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_leg_upper_a.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_knee_pitch-->
   <joint name="l_knee_pitch" type="revolute">
-    <parent link="l_leg_upper"/>
-    <child link="l_leg_lower"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.0 0.0 -0.065008"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_leg_upper" />
+    <child link="l_leg_lower" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0 0.0 -0.065008" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_leg_lower">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0044805681524230055 -0.015970110512676966 -0.04182100713444817" />
+      <mass value="0.061" />
+      <inertia ixx="0.00004" iyy="0.00004" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://roid1_description/meshes/l_leg_lower_a.stl"/>
+        <mesh filename="package://roid1_description/meshes/l_leg_lower_a.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="dark_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="dark_gray" />
     </visual>
     <visual>
       <geometry>
-        <mesh filename="package://roid1_description/meshes/l_leg_lower_b.stl"/>
+        <mesh filename="package://roid1_description/meshes/l_leg_lower_b.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="light_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_leg_lower_a.stl" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_leg_lower_b.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_ankle_pitch-->
   <joint name="l_ankle_pitch" type="revolute">
-    <parent link="l_leg_lower"/>
-    <child link="l_ankle"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.0 0.0 -0.065203"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_leg_lower" />
+    <child link="l_ankle" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0 0.0 -0.065203" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="l_ankle">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0001886240331466279 -0.01666391069306302 -0.03292964719213733" />
+      <mass value="0.058" />
+      <inertia ixx="0.00005" iyy="0.00004" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/l_ankle.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="dark_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_ankle.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--l_ankle_roll-->
   <joint name="l_ankle_roll" type="revolute">
-    <parent link="l_ankle"/>
-    <child link="l_foot_large"/>
-    <axis xyz="1 0 0"/>
-    <origin xyz="0.0 -0.011404 -0.038550"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="l_ankle" />
+    <child link="l_foot_large" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0.0 -0.011404 -0.038550" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
-  <link name="l_foot_large">
+  <link name="l_foot_large">  <!--need to fix-->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.020700151207673705 0.023895172544662873 -0.021244534057561063" />
+      <mass value="0.045" />
+      <inertia ixx="0.00003" iyy="0.00006" izz="0.00008" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://roid1_description/meshes/l_foot_large.stl"/>
+        <mesh filename="package://roid1_description/meshes/l_foot_large.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="dark_gray"/>
+      <origin xyz="0 0 0" />
+      <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/l_foot_large.stl" />
+      </geometry>
+    </collision>
   </link>
 
 
@@ -394,134 +568,196 @@
 
   <!--r_hipjoint_yaw-->
   <joint name="r_hipjoint_yaw" type="revolute">
-    <parent link="c_waist"/>
-    <child link="r_hipjoint_upper"/>
-    <axis xyz="0 0 1"/>
-    <origin xyz="0.0 -0.021530 -0.044936"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="base_link" />
+    <child link="r_hipjoint_upper" />
+    <axis xyz="0 0 1" />
+    <origin xyz="0.0 -0.021530 -0.044936" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_hipjoint_upper">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000032937645155054623 0.0011112514569246185 -0.007400199793976325" />
+      <mass value="0.0115" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_hipjoint_upper.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray" />
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/dec_r_hipjoint_upperpoint.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
-      <material name="orange"/>
+      <origin xyz="0 0 0" />
+      <material name="orange" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_hipjoint_upper.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_hipjoint_roll-->
   <joint name="r_hipjoint_roll" type="revolute">
-    <parent link="r_hipjoint_upper"/>
-    <child link="r_hipjoint_lower"/>
-    <axis xyz="1 0 0"/>
-    <origin xyz="0 0.004501 0"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_hipjoint_upper" />
+    <child link="r_hipjoint_lower" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0.004501 0" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_hipjoint_lower">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.016250242301436166 -0.011463267372574608 -0.006653941986625556" />
+      <mass value="0.058" />
+      <inertia ixx="0.00003" iyy="0.00002" izz="0.00001" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_hipjoint_lower.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_hipjoint_lower.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_hipjoint_pitch-->
   <joint name="r_hipjoint_pitch" type="revolute">
-    <parent link="r_hipjoint_lower"/>
-    <child link="r_leg_upper"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.004052 -0.011504 -0.038476"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_hipjoint_lower" />
+    <child link="r_leg_upper" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.004052 -0.011504 -0.038476" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_leg_upper">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0025897804665520278 0.016499957003041386 -0.03375567398425397" />
+      <mass value="0.091" />
+      <inertia ixx="0.00007" iyy="0.00007" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_leg_upper_a.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_leg_upper_b.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_leg_upper_a.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_knee_pitch-->
   <joint name="r_knee_pitch" type="revolute">
-    <parent link="r_leg_upper"/>
-    <child link="r_leg_lower"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.0 0.0 -0.065008"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_leg_upper" />
+    <child link="r_leg_lower" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0 0.0 -0.065008" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_leg_lower">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.004480568152423165 0.01597002451875967 -0.04182100713444818" />
+      <mass value="0.061" />
+      <inertia ixx="0.00004" iyy="0.00004" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_leg_lower_a.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_leg_lower_b.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="light_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_leg_lower_a.stl" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_leg_lower_b.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_ankle_pitch-->
   <joint name="r_ankle_pitch" type="revolute">
-    <parent link="r_leg_lower"/>
-    <child link="r_ankle"/>
-    <axis xyz="0 1 0"/>
-    <origin xyz="0.0 0.0 -0.065203"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_leg_lower" />
+    <child link="r_ankle" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0 0.0 -0.065203" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_ankle">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00018862403314765484 0.01666382469921859 -0.03292964719213813" />
+      <mass value="0.058" />
+      <inertia ixx="0.00005" iyy="0.00004" izz="0.00002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_ankle.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_ankle.stl" />
+      </geometry>
+    </collision>
   </link>
 
   <!--r_ankle_roll-->
   <joint name="r_ankle_roll" type="revolute">
-    <parent link="r_ankle"/>
-    <child link="r_foot_large"/>
-    <axis xyz="1 0 0"/>
-    <origin xyz="0.0 0.011404 -0.038550"/>
-    <limit lower="-3" upper="3" effort="0" velocity="0"/>
+    <parent link="r_ankle" />
+    <child link="r_foot_large" />
+    <axis xyz="1 0 0" />
+    <origin xyz="0.0 0.011404 -0.038550" />
+    <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
   </joint>
   <link name="r_foot_large">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.020700151207566492 -0.023895258538579878 -0.02124453405755709" />
+      <mass value="0.045" />
+      <inertia ixx="0.00003" iyy="0.00006" izz="0.00008" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://roid1_description/meshes/r_foot_large.stl" />
       </geometry>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" />
       <material name="dark_gray" />
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://roid1_description/meshes/r_foot_large.stl" />
+      </geometry>
+    </collision>
   </link>
-
-
-
 
 </robot>
