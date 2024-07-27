@@ -1,15 +1,14 @@
-物理パラメータを入れるテスト中です。物理パラメータ入りは下記にブランチしています。  
-https://github.com/Ninagawa123/roid1/tree/inatia
-
 # [Roid1](https://github.com/Ninagawa123/roid1)
   
 This is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
 You can operate the joints of the robot with sliders.  
-And you can also import this URDF file into Unity via URDF-importer.  
+And you can also import this URDF file into Unity via URDF-importer. 
+  
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
-
+*このバージョンではinatiaが含まれていません。inatia入りのアップデートバージョンがあります。  
+  
 <img width="600" alt="roid1" src="https://user-images.githubusercontent.com/8329123/189541198-b70175dd-b50d-4334-860d-81675eec0de5.png">
   
   
