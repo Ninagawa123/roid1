@@ -7,9 +7,9 @@ And you can also import this URDF file into Unity via URDF-importer.
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
-
-<img width="600" alt="roid1inatia" src="https://github.com/user-attachments/assets/7816c56f-ddea-4e84-a429-80b9c195f296">
   
+<img width="600" alt="roid1inatia" src="https://github.com/user-attachments/assets/34ceac26-d4b7-4a58-a3e8-6e5d803924e8">
+    
 ## Usage (View in Rviz)
   
 This demo has been confirmed to work on ubuntu/ROS-melodic,noetic with Rviz.  
