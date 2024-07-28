@@ -1,20 +1,19 @@
-# [Roid1](https://github.com/Ninagawa123/roid1)
+# [Roid1](https://github.com/Ninagawa123/roid1/)  
   
 This is a URDF file of a small humanoid robot Roid1 and it's Rviz operation demo.  
 You can operate the joints of the robot with sliders.  
-And you can also import this URDF file into Unity via URDF-importer. 
+And you can also import this URDF file into Unity via URDF-importer.  
   
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
-*このバージョンではinatiaが含まれていません。inatia入りのアップデートバージョンがあります。  
-  
-<img width="600" alt="roid1" src="https://user-images.githubusercontent.com/8329123/189541198-b70175dd-b50d-4334-860d-81675eec0de5.png">
-  
+
+<img width="600" alt="roid1inatia" src="https://github.com/user-attachments/assets/7816c56f-ddea-4e84-a429-80b9c195f296">
   
 # Usage (View in Rviz)
   
 This demo has been confirmed to work on ubuntu/ROS-melodic,noetic with Rviz.  
+  
 Rviz用のデモはROS-melodic,noeticのRvizで動作確認しています。  
 コマンドプロンプトより下記のコマンドで導入からRvizへの表示までを試せます。
   
@@ -33,6 +32,7 @@ $ roslaunch roid1 display.launch
 # Usage (View in Unity)  
   
 Drop URDF folder into Unity Assets, and open "roid1_urdf_unity.urdf" in URDF folder with URDF-Importer.  
+  
 UnityのプロジェクトウィンドウのAssetsの中にURDFフォルダをドロップしてください。その後、roid1_urdf_unity.urdfのファイルをURDF-Importerで読み込んでください。  
 URDF-Importerの使い方は、https://www.youtube.com/watch?v=-OvDCy6cbfU  
   
