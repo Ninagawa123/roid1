@@ -8,7 +8,7 @@ Roid1は小型ヒューマノイドロボットのURDFファイルです。
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
 
-<img width="400" alt="roid1inatia" src="https://github.com/user-attachments/assets/7816c56f-ddea-4e84-a429-80b9c195f296">
+<img width="600" alt="roid1inatia" src="https://github.com/user-attachments/assets/7816c56f-ddea-4e84-a429-80b9c195f296">
   
 # Usage (View in Rviz)
   
