@@ -10,7 +10,7 @@ Rvizでモデルを表示し、スライダーで関節を曲げることがで�
 
 <img width="600" alt="roid1inatia" src="https://github.com/user-attachments/assets/7816c56f-ddea-4e84-a429-80b9c195f296">
   
-# Usage (View in Rviz)
+## Usage (View in Rviz)
   
 This demo has been confirmed to work on ubuntu/ROS-melodic,noetic with Rviz.  
   
@@ -29,7 +29,7 @@ $ source ~/catkin_ws/devel/setup.bash
   
 $ roslaunch roid1 display.launch  
   
-# Usage (View in Unity)  
+## Usage (View in Unity)  
   
 Drop URDF folder into Unity Assets, and open "roid1_urdf_unity.urdf" in URDF folder with URDF-Importer.  
   
@@ -37,7 +37,7 @@ UnityのプロジェクトウィンドウのAssetsの中にURDFフォルダを�
 URDF-Importerの使い方は、https://www.youtube.com/watch?v=-OvDCy6cbfU  
   
   
-# Directory Tree
+## Directory Tree
 
 <pre>
 ~/catkin_ws/src/
