@@ -7,6 +7,9 @@ And you can also import this URDF file into Unity via URDF-importer.
 Roid1は小型ヒューマノイドロボットのURDFファイルです。  
 Rvizでモデルを表示し、スライダーで関節を曲げることができます。  
 また、URDF-importerを使いUnity上にモデルをインポートすることもできます。  
+
+Meridianの概要や変数やライブラリ関数について, 下記に集約中です.  
+[https://ninagawa123.github.io/Meridian_info/](https://ninagawa123.github.io/Meridian_info/)  
   
 <img width="600" alt="roid1inatia" src="https://github.com/user-attachments/assets/34ceac26-d4b7-4a58-a3e8-6e5d803924e8">
     
