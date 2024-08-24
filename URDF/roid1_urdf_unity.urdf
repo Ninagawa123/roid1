@@ -2,7 +2,7 @@
 
 <robot name="Roid1i">
 
-<!--Roid1i Ver.2023.12.23 -->
+<!--Roid1i Ver.2024.08.24 -->
 
   <!-- ********** material color setting **************************************** -->
   <material name="dark_gray">
@@ -569,7 +569,7 @@
   <!--l_ankle to l_foot-->
   <joint name="l_ankle_roll" type="revolute">
     <parent link="l_ankle" />
-    <child link="l_foot_large" />
+    <child link="l_foot" />
     <axis xyz="1 0 0" />
     <origin xyz="0.0 -0.011404 -0.038550" />
     <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
@@ -775,7 +775,7 @@
   <!--r_ankle to r_foot-->
   <joint name="r_ankle_roll" type="revolute">
     <parent link="r_ankle" />
-    <child link="r_foot_large" />
+    <child link="r_foot" />
     <axis xyz="1 0 0" />
     <origin xyz="0.0 0.011404 -0.038550" />
     <limit lower="-3" upper="3" effort="1.373" velocity="7.48" />
