@@ -38,7 +38,7 @@ Drop URDF folder into Unity Assets, and open "roid1_urdf_unity.urdf" in URDF fol
   
 UnityのプロジェクトウィンドウのAssetsの中にURDFフォルダをドロップしてください。その後、roid1_urdf_unity.urdfのファイルをURDF-Importerで読み込んでください。  
 URDF-Importerの使い方は、https://www.youtube.com/watch?v=-OvDCy6cbfU  
-  
+Unityのバージョンは、2020.3.26f1 での動作を確認しています。  
   
 ## Directory Tree
 
