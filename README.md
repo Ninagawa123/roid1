@@ -39,6 +39,11 @@ Drop URDF folder into Unity Assets, and open "roid1_urdf_unity.urdf" in URDF fol
 UnityのプロジェクトウィンドウのAssetsの中にURDFフォルダをドロップしてください。その後、roid1_urdf_unity.urdfのファイルをURDF-Importerで読み込んでください。  
 URDF-Importerの使い方は、https://www.youtube.com/watch?v=-OvDCy6cbfU  
 Unityのバージョンは、2020.3.26f1 での動作を確認しています。  
+
+他のUnityバージョンでモデルを使用する際には、一度2020.3.26f1でURDFを読み込みオブジェクトにした後、  
+ヒエラルキーウィンドウ上のオブジェクトをアセットにドラッグ＆ドロップでプレハブ化し、  
+プレハブをアセットとしてエクスポート、新しいバージョンのUnityでインポートして開いてください。  
+Roid1が見えなくなったりカラーが紫にあった場合は、マテリアルをシェーダーをインポート先のUnityに合わせてください。  
   
 ## Directory Tree
 
